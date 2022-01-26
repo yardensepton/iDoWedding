@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="497.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScenesCommunication.ControllerMainScreen">
+   <children>
+      <ImageView fitHeight="271.0" fitWidth="269.0" layoutX="477.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/couple.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="108.0" fitWidth="97.0" layoutX="210.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/dj.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="98.0" prefWidth="772.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label layoutX="90.0" layoutY="14.0" prefHeight="70.0" prefWidth="566.0" text="My Perfect Wedding Planner" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Light" size="47.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Button fx:id="buttonAddCouple" layoutX="526.0" layoutY="408.0" mnemonicParsing="false" onMouseClicked="#openAddCouplePage" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #000000;" text="Add Couple" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonInvitation" layoutX="353.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#openInvitationPage" prefHeight="31.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="Innvation" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="addDJ" layoutX="210.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#OpenAddDjPage" prefHeight="31.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="DJ" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonBuffet" layoutX="358.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#openAddMainDish" prefHeight="31.0" prefWidth="97.0" style="-fx-background-color: #000000;" text="Buffet" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonAddCar" layoutX="210.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#openAddCarScreen" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #000000;" text="Car" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="97.0" fitWidth="107.0" layoutX="210.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/car.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="107.0" layoutX="353.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/food.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="details" layoutX="19.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#OpenPrintPage" prefHeight="31.0" prefWidth="146.0" style="-fx-background-color: #000000;" text="Show couple details" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="hallDetails" layoutX="19.0" layoutY="269.0" mnemonicParsing="false" onMouseClicked="#OpenPrintHallsPage" prefHeight="31.0" prefWidth="146.0" style="-fx-background-color: #000000;" text="Show halls details" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="DJsDetails" layoutX="19.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#OpenPrintDJsPage" prefHeight="31.0" prefWidth="146.0" style="-fx-background-color: #000000;" text="Show DJS details" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="97.0" fitWidth="107.0" layoutX="353.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/invitation.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

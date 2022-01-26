@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="404.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScenesCommunication.ControllerAddCouplePage">
+    <children>
+        <AnchorPane prefHeight="404.0" prefWidth="702.0" style="-fx-background-color: DCDCDC;">
+            <children>
+                <AnchorPane layoutX="-1.0" layoutY="-13.0" prefHeight="120.0" prefWidth="716.0" style="-fx-background-color: #000000;">
+                    <children>
+                        <Label contentDisplay="CENTER" layoutX="215.0" layoutY="23.0" prefHeight="84.0" prefWidth="301.0" text="Add Couple" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Light" size="57.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane layoutY="97.0" prefHeight="9.0" prefWidth="716.0" style="-fx-background-color: #000000;" />
+                    </children>
+                </AnchorPane>
+                <TextField fx:id="firstSpouseName" layoutX="137.0" layoutY="141.0" prefHeight="26.0" prefWidth="108.0" />
+                <DatePicker fx:id="weddingDate" layoutX="320.0" layoutY="309.0" prefHeight="26.0" prefWidth="150.0" />
+                <TextField fx:id="firstSpouseLastName" layoutX="137.0" layoutY="176.0" prefHeight="26.0" prefWidth="108.0" />
+                <TextField fx:id="firstSpouseID" layoutX="137.0" layoutY="213.0" prefHeight="26.0" prefWidth="108.0" />
+                <TextField fx:id="secondSpouseName" layoutX="549.0" layoutY="141.0" prefHeight="26.0" prefWidth="108.0" />
+                <TextField fx:id="secondSpouseLastName" layoutX="549.0" layoutY="176.0" prefHeight="26.0" prefWidth="108.0" />
+                <TextField fx:id="secondSpouseID" layoutX="549.0" layoutY="213.0" prefHeight="26.0" prefWidth="108.0" />
+                <Button id="checkValidation" fx:id="checkValidation" layoutX="532.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#checkValidation" prefWidth="142.0" style="-fx-background-color: #000000;" text="Check validation" textFill="#fffbfb">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font></Button>
+                <Label layoutX="150.0" layoutY="273.0" prefHeight="36.0" prefWidth="170.0" text="Choose the desired hall">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="147.0" layoutY="304.0" prefHeight="36.0" prefWidth="170.0" text="Choose the desired date">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="191.0" layoutY="336.0" prefHeight="36.0" prefWidth="122.0" text="Number of guests">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Spinner fx:id="numGuests" initialValue="1" layoutX="321.0" layoutY="341.0" max="1000" min="1" />
+                <Label layoutX="25.0" layoutY="136.0" prefHeight="36.0" prefWidth="122.0" text="Enter last name">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="434.0" layoutY="136.0" prefHeight="36.0" prefWidth="122.0" text="Enter last name">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="25.0" layoutY="171.0" prefHeight="36.0" prefWidth="122.0" text="Enter first name">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="434.0" layoutY="171.0" prefHeight="36.0" prefWidth="122.0" text="Enter first name">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="25.0" layoutY="208.0" prefHeight="36.0" prefWidth="122.0" text="Enter ID number">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="426.0" layoutY="208.0" prefHeight="36.0" prefWidth="122.0" text="Enter ID number">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="15.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="hallOptions" layoutX="320.0" layoutY="278.0" onMouseClicked="#getHallOption" prefWidth="150.0" />
+            <Button fx:id="back" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#backAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #000000;" text="Back">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

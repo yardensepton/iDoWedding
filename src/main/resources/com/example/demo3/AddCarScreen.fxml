@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScenesCommunication.ControllerAddCar">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="120.0" prefWidth="701.0" style="-fx-background-color: #000000;">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="86.0" layoutY="14.0" prefHeight="84.0" prefWidth="508.0" text="Add Car Decorations" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Light" size="57.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutY="97.0" prefHeight="10.0" prefWidth="605.0" style="-fx-background-color: #000000;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="107.0" prefHeight="10.0" prefWidth="686.0" style="-fx-background-color: #000000;" />
+      <ComboBox fx:id="coupleChoiceCombo" layoutX="190.0" layoutY="134.0" prefHeight="26.0" prefWidth="338.0" />
+      <Label fx:id="coupleChoiceLabel" layoutX="48.0" layoutY="129.0" prefHeight="36.0" prefWidth="142.0" text="Choose the couple">
+         <font>
+            <Font name="Segoe UI Semilight" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="ChooseWantedCar" layoutX="46.0" layoutY="182.0" prefHeight="36.0" prefWidth="160.0" text="Choose the wanted car">
+         <font>
+            <Font name="Segoe UI Semilight" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="carOptions" layoutX="218.0" layoutY="187.0" prefHeight="26.0" prefWidth="160.0" />
+      <Label fx:id="ChooseDecorations" layoutX="44.0" layoutY="251.0" prefHeight="36.0" prefWidth="160.0" text="Choose decorations">
+         <font>
+            <Font name="Segoe UI Semilight" size="15.0" />
+         </font>
+      </Label>
+      <FlowPane layoutX="204.0" layoutY="251.0" prefHeight="55.0" prefWidth="302.0">
+         <children>
+            <CheckBox fx:id="Ribbon" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="Ribbon" />
+            <CheckBox fx:id="MrAndMrsSign" mnemonicParsing="false" prefHeight="18.0" prefWidth="131.0" text="Mr And Mrs Sign" />
+            <CheckBox fx:id="Flowers" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="Flowers" />
+            <CheckBox fx:id="Balloon" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="Balloon" />
+         </children>
+      </FlowPane>
+      <Button id="checkValidation" fx:id="done" layoutX="587.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#doneAction" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #000000;" text="Done" textFill="#fffbfb">
+         <font>
+            <Font name="Segoe UI Semilight" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="-3.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#backAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #000000;" text="Back">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+   </children>
+</AnchorPane>
