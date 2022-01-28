@@ -38,7 +38,7 @@ CREATE TABLE `decorated_cars` (
 
 LOCK TABLES `decorated_cars` WRITE;
 /*!40000 ALTER TABLE `decorated_cars` DISABLE KEYS */;
-INSERT INTO `decorated_cars` VALUES (1,1),(4,1),(6,1),(4,2),(5,2),(6,2),(7,2),(1,3),(2,3),(6,3),(7,3),(1,4),(2,4),(3,4),(4,4);
+INSERT INTO `decorated_cars` VALUES (1,1),(3,1),(4,1),(6,1),(8,1),(5,2),(6,2),(7,2),(8,2),(10,2),(2,3),(4,3),(6,3),(7,3),(2,4),(8,4),(10,4);
 /*!40000 ALTER TABLE `decorated_cars` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:26
+-- Dump completed on 2022-01-28 17:52:45

@@ -1,4 +1,4 @@
-package com.example.demo3;
+package Main;
 import Executors.Manager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     public static Stage mainStage;
     public static Manager manager = new Manager();
 
@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         mainStage = stage;
-        FXMLLoader startPage = new FXMLLoader(HelloApplication.class.getResource("Start.fxml"));
+        FXMLLoader startPage = new FXMLLoader(Main.class.getResource("Start.fxml"));
         Scene scene1 = new Scene(startPage.load(), 710, 470);
         stage.setScene(scene1);
         stage.setTitle(" © Nofar Shlosberg and Yarden Septon ");

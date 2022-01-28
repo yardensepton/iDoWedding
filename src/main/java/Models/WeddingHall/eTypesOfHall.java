@@ -4,7 +4,7 @@ public enum eTypesOfHall {
 
         CombinedWeddingHall, ExteriorWeddingHall, IndoorWeddingHall, IntimateWeddingHall, ResortWeddingHall;
 
-    public String getTypeHall() {
+    public String toString() {
         switch(this) {
             case CombinedWeddingHall:
                 return "Combined";

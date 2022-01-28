@@ -83,23 +83,7 @@ public class DBHelper {
             return null;
         }
     }
-    public static ResultSet ReadDataAndInputFromUser(String sql, int tableIndexInput, String string) {
-        try {
-            OpenConnection();
-            PreparedStatement statement = dbConnection.prepareStatement(sql);
-            statement.setString(tableIndexInput,string);
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet;
-        } catch (SQLException e) {
-            System.out.println("SQL problem: " + e.getMessage());
-            System.out.println("SQL state: " + e.getSQLState());
-            System.out.println("Vendor error: " + e.getErrorCode());
-            return null;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
+
     public static int WriteData(String sql) {
         try {
             OpenConnection();

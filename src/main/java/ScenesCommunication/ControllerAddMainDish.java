@@ -1,8 +1,7 @@
 package ScenesCommunication;
-import DbConnenction.GetFromDB;
 import Models.Buffet.*;
 import Models.Couple;
-import com.example.demo3.HelloApplication;
+import Main.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +23,10 @@ public class ControllerAddMainDish {
 
     @FXML
     private Button done;
+
+    public ComboBox<Couple> getCoupleChoiceCombo() {
+        return coupleChoiceCombo;
+    }
 
     @FXML
     private CheckBox mashedPotatoes;
@@ -78,7 +81,7 @@ public class ControllerAddMainDish {
             decorations.add(steakBuffetDecorator);
         }
         try {
-            HelloApplication.manager.chooseDishDecorations(coupleChoiceCombo.getValue(), mainDish,decorations);
+            Main.manager.chooseDishDecorations(coupleChoiceCombo.getValue(), mainDish,decorations);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, coupleChoiceCombo.getValue().toString());
             alert.showAndWait();
         } catch (Exception e) {
@@ -90,30 +93,23 @@ public class ControllerAddMainDish {
     }
 
     boolean checks() {
+        Alert alert;
         if (coupleChoiceCombo.getItems().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "All the couples chose car decorations.");
+             alert = new Alert(Alert.AlertType.ERROR, "All the couples chose car decorations.");
             alert.showAndWait();
             return false;
         } else if (!(risotto.isSelected()  || rice.isSelected()  || steak.isSelected()  || salomon.isSelected() || pulletSteak.isSelected()  || mashedPotatoes.isSelected())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Empty fields");
+             alert = new Alert(Alert.AlertType.ERROR, "Empty fields");
+            alert.showAndWait();
+            return false;
+        } else if (coupleChoiceCombo.getValue()==null) {
+             alert = new Alert(Alert.AlertType.ERROR, "Empty fields");
             alert.showAndWait();
             return false;
         }
         return true;
     }
 
-
-    void insertCouplesToComboBox() throws Exception {
-        ArrayList<Couple> couples = GetFromDB.getAllCouples();
-        for (Couple couple : couples) {
-            if (couple.getWedding().getMainDish() == null) {
-                coupleChoiceCombo.getItems().add(couple);
-            }
-        }
-        if (coupleChoiceCombo.getItems().isEmpty()) {
-            coupleChoiceCombo.setPromptText("All the couples chose main course.");
-        }
-    }
 
 }
 

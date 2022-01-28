@@ -60,7 +60,7 @@ public abstract class WeddingHall {
     }
 
     public String getName() {
-        StringBuffer sb = new StringBuffer(nameOfHall + " , " + type.getTypeHall() + "Address: " + address + "\n");
+        StringBuffer sb = new StringBuffer(nameOfHall + " , " + type.toString() + "Address: " + address + "\n");
         return sb.toString();
     }
 
@@ -79,7 +79,7 @@ public abstract class WeddingHall {
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer(nameOfHall + " , " + type.getTypeHall() + "\nCanopy style: " + typeCanopy + "\nThe maximum number of guests is: " + maxNumOfGuests +
+        StringBuffer sb = new StringBuffer(nameOfHall + " , " + type.toString() + "\nCanopy style: " + typeCanopy + "\nThe maximum number of guests is: " + maxNumOfGuests +
                 "\nAddress: " + address + "\n");
         return sb.toString();
     }

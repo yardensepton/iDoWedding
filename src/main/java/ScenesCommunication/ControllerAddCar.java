@@ -3,7 +3,7 @@ package ScenesCommunication;
 import DbConnenction.GetFromDB;
 import Models.Couple;
 import Models.WeddingCar.*;
-import com.example.demo3.HelloApplication;
+import Main.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +27,10 @@ public class ControllerAddCar {
     private Button back;
     @FXML
     private Label ChooseWantedCar;
+
+    public ComboBox<Couple> getCoupleChoiceCombo() {
+        return coupleChoiceCombo;
+    }
 
     @FXML
     private CheckBox Flowers;
@@ -57,25 +61,13 @@ public class ControllerAddCar {
     }
 
 
-    void insertCouplesToComboBox() throws Exception {
-        ArrayList<Couple> couples = GetFromDB.getAllCouples();
-        for (Couple couple : couples) {
-            if (couple.getWedding().getCar() == null) {
-                coupleChoiceCombo.getItems().add(couple);
-            }
-        }
-        if (coupleChoiceCombo.getItems().isEmpty()) {
-            coupleChoiceCombo.setPromptText("All the couples chose car decorations.");
-        }
-    }
-
     boolean checks() {
         Alert alert;
         if (coupleChoiceCombo.getItems().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR, "All the couples chose car decorations.");
             alert.showAndWait();
             return false;
-        } else if (carOptions.getValue() == null) {
+        } else if (carOptions.getValue() == null || coupleChoiceCombo.getValue() == null) {
             alert = new Alert(Alert.AlertType.ERROR, "Empty fields");
             alert.showAndWait();
             return false;
@@ -116,10 +108,9 @@ public class ControllerAddCar {
             decorations.add(mrAndMrsCarDecorator);
         }
         try {
-            HelloApplication.manager.chooseCarDecorations(coupleChoiceCombo.getValue(), carOptions.getValue(), decorations);
+            Main.manager.chooseCarDecorations(coupleChoiceCombo.getValue(), carOptions.getValue(), decorations);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, coupleChoiceCombo.getValue().toString());
             alert.showAndWait();
-            insertCouplesToComboBox();
         } catch (Exception e) {
             String err = e.getMessage();
             Alert error = new Alert(Alert.AlertType.INFORMATION, err);

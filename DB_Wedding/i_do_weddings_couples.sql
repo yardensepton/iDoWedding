@@ -28,13 +28,13 @@ CREATE TABLE `couples` (
   `second_spouse` int NOT NULL,
   `wedding_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `first_spouse_UNIQUE` (`first_spouse`) /*!80000 INVISIBLE */,
+  UNIQUE KEY `first_spouse` (`first_spouse`) /*!80000 INVISIBLE */,
   KEY `secondspuse_people_idx` (`second_spouse`),
   KEY `weddingToCouple_idx` (`wedding_id`),
   CONSTRAINT `first_people` FOREIGN KEY (`first_spouse`) REFERENCES `people` (`id`),
   CONSTRAINT `second_people` FOREIGN KEY (`second_spouse`) REFERENCES `people` (`id`),
   CONSTRAINT `weddingToCouple` FOREIGN KEY (`wedding_id`) REFERENCES `wedding` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `couples` (
 
 LOCK TABLES `couples` WRITE;
 /*!40000 ALTER TABLE `couples` DISABLE KEYS */;
-INSERT INTO `couples` VALUES (1,93,94,1),(2,157,158,2),(3,163,164,3),(4,173,174,4),(5,199,200,5),(6,203,204,6),(7,209,210,7);
+INSERT INTO `couples` VALUES (1,93,94,1),(2,157,158,2),(3,163,164,3),(4,173,174,4),(5,199,200,5),(6,203,204,6),(7,209,210,7),(8,214,215,8),(9,218,219,9),(10,220,221,10);
 /*!40000 ALTER TABLE `couples` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:22
+-- Dump completed on 2022-01-28 17:52:41

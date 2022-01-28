@@ -71,8 +71,18 @@ public class Person {
 
     @Override
     public String toString() {
-        String last = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-        String first = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        String last;
+        String first;
+        if (lastName.charAt(0) ==' '){
+           last = lastName.substring(1, 2).toUpperCase() + lastName.substring(2).toLowerCase();
+        }else {
+             last = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        }
+        if (firstName.charAt(0) ==' '){
+            first = firstName.substring(1, 2).toUpperCase() + firstName.substring(2).toLowerCase();
+        }else {
+            first = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        }
         StringBuffer sb = new StringBuffer(last + " " + first + "(" + id + ")");
         return sb.toString();
     }

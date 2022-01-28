@@ -36,11 +36,13 @@ CREATE TABLE `wedding` (
   KEY `car_wedding_idx` (`car`),
   KEY `main_dish_wedding_idx` (`main_dish`),
   KEY `invitation_wedding_idx` (`invitation`),
+  KEY `wedding_hall_idx` (`hall_id`),
   CONSTRAINT `car_wedding` FOREIGN KEY (`car`) REFERENCES `decorated_cars` (`id`),
   CONSTRAINT `invitation_wedding` FOREIGN KEY (`invitation`) REFERENCES `invitation_send_type` (`id`),
   CONSTRAINT `main_dish_wedding` FOREIGN KEY (`main_dish`) REFERENCES `decorated_dishes` (`id`),
-  CONSTRAINT `person_dj` FOREIGN KEY (`dj_id`) REFERENCES `people` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `person_dj` FOREIGN KEY (`dj_id`) REFERENCES `dj` (`id`),
+  CONSTRAINT `wedding_hall` FOREIGN KEY (`hall_id`) REFERENCES `wedding_hall` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +51,7 @@ CREATE TABLE `wedding` (
 
 LOCK TABLES `wedding` WRITE;
 /*!40000 ALTER TABLE `wedding` DISABLE KEYS */;
-INSERT INTO `wedding` VALUES (1,1,1,NULL,'2022-07-04',63,26,3),(2,2,2,2,'2022-02-02',68,78,2),(3,5,3,3,'2022-02-04',68,999,NULL),(4,4,4,4,'2022-02-05',67,88,NULL),(5,5,5,5,'2022-02-05',66,875,NULL),(6,1,6,6,'2022-04-01',64,300,1),(7,1,7,7,'2022-02-04',68,56,1);
+INSERT INTO `wedding` VALUES (1,1,1,1,'2022-07-04',63,26,3),(2,2,2,2,'2022-02-02',68,78,2),(3,5,3,3,'2022-02-04',63,999,2),(4,4,4,4,'2022-02-05',68,88,2),(5,5,5,5,'2022-02-05',66,875,NULL),(6,1,6,6,'2022-04-01',64,300,1),(7,1,7,7,'2022-02-04',68,56,1),(8,1,8,NULL,'2022-01-31',65,50,3),(9,1,NULL,NULL,'2022-04-27',NULL,300,NULL),(10,1,10,10,'2022-03-11',64,54,1);
 /*!40000 ALTER TABLE `wedding` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:25
+-- Dump completed on 2022-01-28 17:52:44

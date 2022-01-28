@@ -5,8 +5,8 @@ module com.example.demo3 {
     requires mysql.connector.java;
 
 
-    opens com.example.demo3 to javafx.fxml;
-    exports com.example.demo3;
+    opens Main to javafx.fxml;
+    exports Main;
     opens Models to javafx.base;
     opens Models.Music to javafx.base;
     opens Models.WeddingHall to javafx.base;

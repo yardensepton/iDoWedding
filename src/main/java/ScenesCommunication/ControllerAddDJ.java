@@ -1,12 +1,14 @@
 package ScenesCommunication;
+
 import DbConnenction.GetFromDB;
 import Models.Couple;
 import Models.Music.DJ;
-import com.example.demo3.HelloApplication;
+import Main.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import java.util.ArrayList;
+
+import java.util.List;
 
 
 public class ControllerAddDJ {
@@ -56,9 +58,10 @@ public class ControllerAddDJ {
 
     @FXML
     void checkValidation(MouseEvent event) throws Exception {
-        ArrayList<DJ> djsPop = GetFromDB.getAllDJsByGenre(HelloApplication.manager.getPop().toString());
-        ArrayList<DJ> djsRock = GetFromDB.getAllDJsByGenre(HelloApplication.manager.getRock().toString());
-        ArrayList<DJ> djsMiddleEast = GetFromDB.getAllDJsByGenre(HelloApplication.manager.getMiddleEast().toString());
+        List<DJ> djsPop = GetFromDB.getAllDJsByGenre(Main.manager.getPop().toString());
+        List<DJ> djsRock = GetFromDB.getAllDJsByGenre(Main.manager.getRock().toString());
+        List<DJ> djsMiddleEast = GetFromDB.getAllDJsByGenre(Main.manager.getMiddleEast().toString());
+
         if (pop.isSelected()) {
             insertToComboBox(djsPop);
         }
@@ -82,33 +85,33 @@ public class ControllerAddDJ {
         middleEast.setSelected(false);
     }
 
-    void insertToComboBox(ArrayList<DJ> djs) {
+    void insertToComboBox(List<DJ> djs) {
         for (DJ dj : djs) {
             djOptions.getItems().add(dj);
         }
     }
 
-    void deleteFromComboBox(ArrayList<DJ> djs) {
+    void deleteFromComboBox(List<DJ> djs) {
         for (DJ dj : djs) {
             djOptions.getItems().remove(dj);
         }
     }
+
 
     @FXML
     void doneAction(MouseEvent event) throws Exception {
         if (coupleChoiceCombo.getValue() == null || djOptions.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Empty fields..");
             alert.showAndWait();
-        }
-        else {
+        } else {
             try {
                 DJ dj = djOptions.getValue();
                 Couple couple = coupleChoiceCombo.getValue();
-                HelloApplication.manager.chooseDJ(couple, dj);
+                Main.manager.chooseDJ(couple, dj);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, djOptions.getValue().toString());
                 alert.showAndWait();
-            }catch (Exception e){
-                String err =  e.getMessage();
+            } catch (Exception e) {
+                String err = e.getMessage();
                 Alert error = new Alert(Alert.AlertType.INFORMATION, err);
                 error.setTitle("Invalid information");
                 error.showAndWait();

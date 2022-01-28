@@ -28,7 +28,7 @@ CREATE TABLE `people` (
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`,`id_from_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=236 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (10,' 784125063 ','Calvin','Harris'),(11,' 741258963 ','Eric','Prydz'),(12,' 123456789 ','Nina','Kraviz'),(63,' 123456785 ','Neta','Alchimister'),(64,' 289425631 ','Eylon','Mattana'),(65,' 614585763 ','Martin','Gerix'),(66,' 415286932 ','Shawn','Mendes'),(67,' 741023568 ','David','Guetta'),(68,' 587964856 ','Yam','Golan'),(93,'102010304','shay','cohen'),(94,' 203020302 ','itay','levi'),(157,' 417474152 ','valerie','joh'),(158,' 654654563 ','dillen','mor'),(163,' 000000000 ','dora','lutes'),(164,' 969874523 ','shalom','israel'),(173,' 989745125 ','pop ',' eran '),(174,' 865241325 ','mop ',' dana '),(199,' 303020302 ','maya ',' johns '),(200,' 104101410 ','kory ',' mendel '),(201,' 787474512 ','poppins ',' merry '),(202,' 635274152 ','jod ',' dor '),(203,' 010235648 ','tayeb ',' ninet '),(204,' 148759632 ','danker ',' ran '),(209,' 256548745 ','cohen ',' ron '),(210,' 141487452 ','levi ',' einat ');
+INSERT INTO `people` VALUES (10,' 784125063 ','Calvin','Harris'),(11,' 741258963 ','Eric','Prydz'),(12,' 123456789 ','Nina','Kraviz'),(63,' 123456785 ','Neta','Alchimister'),(64,' 289425631 ','Eylon','Mattana'),(65,' 614585763 ','Martin','Gerix'),(66,' 415286932 ','Shawn','Mendes'),(67,' 741023568 ','David','Guetta'),(68,' 587964856 ','Yam','Golan'),(93,'102010304','shay','cohen'),(94,' 203020302 ','itay','levi'),(157,' 417474152 ','valerie','joh'),(158,' 654654563 ','dillen','mor'),(163,' 000000000 ','dora','lutes'),(164,' 969874523 ','shalom','israel'),(173,' 989745125 ','pop ',' eran '),(174,' 865241325 ','mop ',' dana '),(199,' 303020302 ','maya ',' johns '),(200,' 104101410 ','kory ',' mendel '),(201,' 787474512 ','poppins ',' merry '),(202,' 635274152 ','jod ',' dor '),(203,' 010235648 ','tayeb ',' ninet '),(204,' 148759632 ','danker ',' ran '),(209,' 256548745 ','cohen ',' ron '),(210,' 141487452 ','levi ',' einat '),(214,' 032548745 ','montana ',' hanna '),(215,' 325658745 ','brodie ',' traviss '),(218,' 784512451 ','gomez ',' selena '),(219,' 784120365 ','bieber ',' justin '),(220,' 174587452 ','kunis ',' milla '),(221,' 365241785 ','kutcher ',' ashton ');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:23
+-- Dump completed on 2022-01-28 17:52:43

@@ -12,6 +12,6 @@ public class RisottoBuffetDecorator extends BuffetDecorator {
 
     public String toString() {
         return decoratedDish + (decoratedDish instanceof Buffet ?
-                "Main Dish Includes:\nCreamy risotto based on wild mushrooms and white wine " : ",\nserved with ,creamy risotto based on wild mushrooms and white wine");
+                "Main Dish Includes:\nCreamy risotto based on wild mushrooms and white wine " : ",\ncreamy risotto based on wild mushrooms and white wine");
     }
 }

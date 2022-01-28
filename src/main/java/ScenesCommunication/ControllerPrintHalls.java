@@ -60,15 +60,7 @@ public class ControllerPrintHalls implements Initializable {
         canopy.setCellValueFactory(new PropertyValueFactory<WeddingHall, String>("typeCanopy"));
         type.setCellValueFactory(new PropertyValueFactory<WeddingHall, eTypesOfHall>("type"));
         address.setCellValueFactory(new PropertyValueFactory<WeddingHall, String>("address"));
-
-
+        tableViewHalls.getItems().addAll(halls);
     }
-
-    public void insertToTable() {
-        if (tableViewHalls.getItems().isEmpty()) {
-            tableViewHalls.getItems().addAll(halls);
-        }
-    }
-
 
 }

@@ -38,7 +38,7 @@ CREATE TABLE `decorated_dishes` (
 
 LOCK TABLES `decorated_dishes` WRITE;
 /*!40000 ALTER TABLE `decorated_dishes` DISABLE KEYS */;
-INSERT INTO `decorated_dishes` VALUES (1,1),(3,1),(7,1),(5,2),(6,2),(1,3),(2,3),(3,3),(4,4),(5,4),(7,4),(2,5),(4,5),(3,6),(4,6);
+INSERT INTO `decorated_dishes` VALUES (2,1),(7,1),(10,1),(1,2),(5,2),(6,2),(10,3),(1,4),(3,4),(4,4),(5,4),(7,4),(4,5),(4,6);
 /*!40000 ALTER TABLE `decorated_dishes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:23
+-- Dump completed on 2022-01-28 17:52:42

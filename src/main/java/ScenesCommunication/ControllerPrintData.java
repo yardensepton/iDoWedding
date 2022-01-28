@@ -59,6 +59,10 @@ public class ControllerPrintData implements Initializable {
     @FXML
     private Button back;
 
+    public ComboBox<Couple> getCoupleChoiceCombo() {
+        return coupleChoiceCombo;
+    }
+
     @FXML
     void backAction(MouseEvent event) throws Exception {
         mainScreen.back();

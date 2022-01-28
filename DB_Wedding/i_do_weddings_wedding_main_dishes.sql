@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `wedding_main_dishes`;
 CREATE TABLE `wedding_main_dishes` (
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='		';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34,7 +34,7 @@ CREATE TABLE `wedding_main_dishes` (
 
 LOCK TABLES `wedding_main_dishes` WRITE;
 /*!40000 ALTER TABLE `wedding_main_dishes` DISABLE KEYS */;
-INSERT INTO `wedding_main_dishes` VALUES (1),(2),(3),(4),(5),(6),(7);
+INSERT INTO `wedding_main_dishes` VALUES (1),(2),(3),(4),(5),(6),(7),(10);
 /*!40000 ALTER TABLE `wedding_main_dishes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-26 19:56:22
+-- Dump completed on 2022-01-28 17:52:42

@@ -4,7 +4,7 @@ import Models.Buffet.*;
 import Models.Couple;
 import Models.Invitation.Invitation;
 import Models.Invitation.InvitationFactory;
-import Models.Music.DJ;
+import Models.Music.*;
 import Models.Person;
 import Models.Wedding;
 import Models.WeddingCar.*;
@@ -14,37 +14,34 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GetFromDB {
 
     private static ResultSet rs = null;
-    public static ArrayList<Person> people = new ArrayList<>();
-    public static ArrayList<WeddingHall> weddingHalls = new ArrayList<>();
-    public static ArrayList<Wedding> weddings = new ArrayList<>();
-    public static ArrayList<DJ> djs = new ArrayList<>();
 
-    public static ArrayList<DJ> getAllDJsByGenre(String input) throws Exception {
-        int index = 1;
-        String sql = ("select people.first_name,people.last_name, people.id_from_user,musicalgenre.name as musical_genre\n" +
-                "from(dj join people on dj.id=people.id)join musicalgenre on dj.genre_id = musicalgenre.id\n" +
-                "where musicalgenre.name =?");
-        ArrayList<DJ> djsByGenre = new ArrayList<>();
-        rs = DBHelper.ReadDataAndInputFromUser(sql, index, input);
-        while (rs.next()) {
-            DJ dj = new DJ();
-            dj.setId(rs.getString("id_from_user"));
-            dj.setFirstName(rs.getString("first_name"));
-            dj.setLastName(rs.getString("last_name"));
-            dj.setMusicalGenre(rs.getString("musical_genre"));
-            djsByGenre.add(dj);
+    public static List<DJ> getAllDJsByGenre(String genre) throws Exception {
+        Criteria pop = new CriteriaPop();
+        Criteria rock = new CriteriaRock();
+        Criteria middleEast = new CriteriaMiddleEasterMusic();
+        ArrayList<DJ> djs = getAllDJs();
+
+        if (genre.equals(pop.toString())) {
+            return pop.meetCriteria(djs);
         }
-        DBHelper.CloseConnection();
-        return djsByGenre;
+        if (genre.equals(rock.toString())) {
+            return rock.meetCriteria(djs);
+
+        } else {
+            return middleEast.meetCriteria(djs);
+        }
+
     }
 
     public static ArrayList<DJ> getAllDJs() throws Exception {
         String sql = ("select people.first_name,people.last_name, people.id_from_user,musicalgenre.name as musical_genre\n" +
                 "from(dj join people on dj.id=people.id)join musicalgenre on dj.genre_id = musicalgenre.id");
+        ArrayList<DJ> djs = new ArrayList<>();
         rs = DBHelper.ReadData(sql);
         while (rs.next()) {
             DJ dj = new DJ();
@@ -73,6 +70,7 @@ public class GetFromDB {
     public static ArrayList<Person> getAllPeople() throws Exception {
         String sql = ("select * from people;");
         rs = DBHelper.ReadData(sql);
+        ArrayList<Person> people = new ArrayList<>();
         while (rs.next()) {
             String id = rs.getString("id_from_user");
             String lastName = rs.getString("last_name");
@@ -84,16 +82,6 @@ public class GetFromDB {
         return people;
     }
 
-    public static boolean isPersonExist(String id) throws Exception {
-        int index = 1;
-        String sql = ("select * from people where id_from_user=?;");
-        rs = DBHelper.ReadDataAndInputFromUser(sql, index, id);
-        if (rs.next()) {
-            return true;
-        }
-        DBHelper.CloseConnection();
-        return false;
-    }
 
     public static int getCouplesNumber() throws Exception {
         String sql = ("SELECT MAX(id) FROM couples;");
@@ -116,6 +104,7 @@ public class GetFromDB {
     }
 
     public static ArrayList<Wedding> getAllWeddings() throws Exception {
+        ArrayList<Wedding> weddings = new ArrayList<>();
         int size = getWeddingsNumber();
         for (int j = 1; j <= size; j++) {
             weddings.add(getWedding(j));
@@ -134,22 +123,6 @@ public class GetFromDB {
         return num;
     }
 
-    public static Person geCertainPerson(String id) throws Exception {
-        Person person = new Person();
-        int index = 1;
-        String sql = ("select * from people where id=?;");
-        rs = DBHelper.ReadDataAndInputFromUser(sql, index, id);
-        if (rs.next()) {
-            String Id = rs.getString("id_from_user");
-            String lastName = rs.getString("last_name");
-            String firstName = rs.getString("first_name");
-            person.setLastName(lastName);
-            person.setId(Id);
-            person.setFirstName(firstName);
-        }
-        DBHelper.CloseConnection();
-        return person;
-    }
 
     public static int getInvitationID(Invitation invitation) throws Exception {
         String name = invitation.toString();
@@ -212,7 +185,7 @@ public class GetFromDB {
     }
 
     public static WeddingHall getCertainWeddingHall(int i) throws Exception {
-        getAllWeddingHalls();
+        ArrayList<WeddingHall> weddingHalls = getAllWeddingHalls();
         for (int j = 0; j < weddingHalls.size(); j++) {
             if (j + 1 == i) {
                 return weddingHalls.get(j);
@@ -223,7 +196,7 @@ public class GetFromDB {
 
 
     public static boolean checkIfHallIsFree(Wedding thisWedding, Person person, Person otherPerson) throws Exception {
-        weddings = getAllWeddings();
+        ArrayList<Wedding> weddings = getAllWeddings();
         for (Wedding wedding : weddings) {
             if (wedding.equals(thisWedding)) {//if the wanted hall is occupied in this date
                 AddToDB.deletePeople(person);
@@ -236,7 +209,7 @@ public class GetFromDB {
 
 
     public static int getWeddingHallSerialNumber(WeddingHall hall) throws Exception {
-        weddingHalls = getAllWeddingHalls();
+        ArrayList<WeddingHall>  weddingHalls = getAllWeddingHalls();
         for (int j = 0; j < weddingHalls.size(); j++) {
             if (hall.equals(weddingHalls.get(j))) {
                 return j + 1;
@@ -291,7 +264,6 @@ public class GetFromDB {
         Sedan sedan = new Sedan();
         Limousine limousine = new Limousine();
         ArrayList<Vehicle> vehicles = new ArrayList<>();
-        int index = 1;
         String sql = ("select * from car_types;");
         rs = DBHelper.ReadData(sql);
         while (rs.next()) {
@@ -319,7 +291,7 @@ public class GetFromDB {
             LocalDate localD = date.toLocalDate();
             wedding.setWeddingDate(localD);
             wedding.setWeddingHall(getCertainWeddingHall(weddingHallNum));
-            wedding.setNumOfGuests(guests,null,null);
+            wedding.setNumOfGuests(guests, null, null);
             wedding.setSerialNumber(serialNum);
             DJ dj = getCertainDJ(djNum);
             wedding.setDj(dj);
@@ -333,21 +305,21 @@ public class GetFromDB {
 
 
     public static WeddingHall getWeddingHallByType(eTypesOfHall typesOfHall) throws Exception {
-        weddingHalls = getAllWeddingHalls();
+        ArrayList<WeddingHall> weddingHalls = getAllWeddingHalls();
         for (WeddingHall hall : weddingHalls) {
-            if (typesOfHall==eTypesOfHall.CombinedWeddingHall){
+            if (typesOfHall == eTypesOfHall.CombinedWeddingHall) {
                 return hall;
             }
-            if (typesOfHall==eTypesOfHall.IndoorWeddingHall){
+            if (typesOfHall == eTypesOfHall.IndoorWeddingHall) {
                 return hall;
             }
-            if (typesOfHall==eTypesOfHall.ResortWeddingHall){
+            if (typesOfHall == eTypesOfHall.ResortWeddingHall) {
                 return hall;
             }
-            if (typesOfHall==eTypesOfHall.ExteriorWeddingHall){
+            if (typesOfHall == eTypesOfHall.ExteriorWeddingHall) {
                 return hall;
             }
-            if (typesOfHall==eTypesOfHall.IntimateWeddingHall){
+            if (typesOfHall == eTypesOfHall.IntimateWeddingHall) {
                 return hall;
             }
         }
@@ -357,6 +329,7 @@ public class GetFromDB {
     public static ArrayList<WeddingHall> getAllWeddingHalls() throws Exception {
         String sql = ("select * from wedding_hall;");
         rs = DBHelper.ReadData(sql);
+        ArrayList<WeddingHall> weddingHalls = new ArrayList<>();
         while (rs.next()) {
             switch (rs.getString("type")) {
                 case "Combined":

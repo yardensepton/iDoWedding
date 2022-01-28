@@ -7,7 +7,7 @@ public class Couple {
     private Wedding wedding;
 
     public Couple() {
-        serialNumber = 0;
+        this.serialNumber = 0;
         this.firstSpouse = null;
         this.secondSpouse = null;
         this.wedding = null;
@@ -32,6 +32,9 @@ public class Couple {
         this.firstSpouse = firstSpouse;
     }
 
+    public int getSerialNumber() {
+        return serialNumber;
+    }
 
     public void setSecondSpouse(Person secondSpouse) {
         this.secondSpouse = secondSpouse;

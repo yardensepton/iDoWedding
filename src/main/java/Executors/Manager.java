@@ -41,8 +41,7 @@ public class Manager {
 
 
     public boolean checkIfCanAddWedding(Person otherPerson1, Person otherPerson2, WeddingHall weddingHall, LocalDate date, int numOfGuests) throws Exception {
-        AddToDB.addCouple(otherPerson1, otherPerson2, weddingHall, date, numOfGuests);
-        return true;
+        return AddToDB.addCouple(otherPerson1, otherPerson2, weddingHall, date, numOfGuests);
     }
 
     public boolean addCouple(String firstName1, String lastName1, String id1, String firstName2, String lastName2, String id2, int numGuests, LocalDate date, eTypesOfHall weddingHall) throws Exception {
@@ -50,20 +49,16 @@ public class Manager {
         WeddingHall chosen = GetFromDB.getWeddingHallByType(weddingHall);
         Person otherPerson1 = new Person(firstName1, lastName1, id1);
         Person otherPerson2 = new Person(firstName2, lastName2, id2);
-        checkIfCanAddPerson(otherPerson1, otherPerson2);
-        checkIfCanAddWedding(otherPerson1, otherPerson2, chosen, date, numGuests);
-        return true;
-    }
-
-    public boolean checkIfCanAddPerson(Person otherPerson1, Person otherPerson2) {
-        try {
-            AddToDB.addPeople(otherPerson1);
-            AddToDB.addPeople(otherPerson2);
-            return true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (!checkIfCanAddPerson(otherPerson1, otherPerson2)) {
             return false;
         }
+        return checkIfCanAddWedding(otherPerson1, otherPerson2, chosen, date, numGuests);
+    }
+
+    public boolean checkIfCanAddPerson(Person otherPerson1, Person otherPerson2) throws Exception {
+        AddToDB.addPeople(otherPerson1);
+        AddToDB.addPeople(otherPerson2);
+        return true;
     }
 
 
@@ -103,7 +98,7 @@ public class Manager {
         for (Wedding wedding : weddings) {
             if (couple.getWedding().equals(wedding)) {
                 mainDish.setNumOfDishes(wedding.getNumOfGuests());
-                AddToDB.addDishToWedding(wedding, mainDish, decorations);
+                AddToDB.addDishToWedding(wedding, decorations);
                 break;
             }
         }

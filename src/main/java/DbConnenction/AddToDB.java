@@ -1,6 +1,6 @@
 package DbConnenction;
+
 import Models.Buffet.BuffetDecorator;
-import Models.Buffet.MainDish;
 import Models.Couple;
 import Models.Invitation.Invitation;
 import Models.Music.DJ;
@@ -22,7 +22,7 @@ public class AddToDB {
         if (!allPeople.isEmpty()) {
             for (Person person : allPeople) {
                 if (person.equals(otherPerson)) {
-                    return false;
+                    throw new Exception("One/all of the couple already exists");
                 }
             }
         }
@@ -33,30 +33,31 @@ public class AddToDB {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
         }
-        if (!checkIfCanAddPerson(person)){
-            throw new Exception("One/all of the couple already exists");
-        }
-        String idFromUser = person.getId();
-        String firstName = person.getFirstName();
-        String lastName = person.getLastName();
-        String sql = "  INSERT INTO `i_do_weddings`.`people` (`id_from_user`,`first_name`,`last_name`) VALUES  ( ' " + idFromUser + " ', '" + firstName + " ',' " + lastName + " ' )";
-        int num = DBHelper.WriteData(sql);
-        DBHelper.CloseConnection();
-        if (num == -1) {
-            throw new Exception("The Person wasn't added successfully");
+        if (!checkIfCanAddPerson(person)) {
+            deletePeople(person);
+        } else {
+            String idFromUser = person.getId();
+            String firstName = person.getFirstName();
+            String lastName = person.getLastName();
+            String sql = "  INSERT INTO `i_do_weddings`.`people` (`id_from_user`,`first_name`,`last_name`) VALUES  ( ' " + idFromUser + " ', '" + firstName + " ',' " + lastName + " ' )";
+            int num = DBHelper.WriteData(sql);
+            DBHelper.CloseConnection();
+            if (num == -1) {
+                throw new Exception("The Person wasn't added successfully");
+            }
         }
     }
 
-    public static void addCouple(Person person, Person otherPerson, WeddingHall hall, LocalDate date, int numGuests) throws Exception {
+    public static boolean addCouple(Person person, Person otherPerson, WeddingHall hall, LocalDate date, int numGuests) throws Exception {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
         }
         int id = GetFromDB.getCouplesNumber() + 1;
-        Wedding wedding = addWedding(hall, date, numGuests, id,person,otherPerson);
+        Wedding wedding = addWedding(hall, date, numGuests, id, person, otherPerson);
         if (wedding == null) {
             deletePeople(person);
             deletePeople(otherPerson);
-            return;
+            return false;
         }
         Couple couple = new Couple();
         int id1 = GetFromDB.getId(person.getId());
@@ -73,8 +74,10 @@ public class AddToDB {
             throw new Exception("The couple wasn't added successfully");
         } else {
             System.out.println("couple and wedding were added successfully");
+            return true;
         }
     }
+
     public static void addInvitationToWedding(Wedding wedding, Invitation invitation) throws Exception {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
@@ -90,15 +93,15 @@ public class AddToDB {
     }
 
 
-    public static Wedding addWedding(WeddingHall hall, LocalDate date, int numOfGuests, int id,Person person,Person otherPerson) throws Exception {
+    public static Wedding addWedding(WeddingHall hall, LocalDate date, int numOfGuests, int id, Person person, Person otherPerson) throws Exception {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
         }
         Wedding thisWedding = new Wedding();
-        if (!(thisWedding.setWeddingHall(hall) && thisWedding.setWeddingDate(date) && thisWedding.setNumOfGuests(numOfGuests,person,otherPerson))) {
+        if (!(thisWedding.setWeddingHall(hall) && thisWedding.setWeddingDate(date) && thisWedding.setNumOfGuests(numOfGuests, person, otherPerson))) {
             return null;
         }
-        if (!GetFromDB.checkIfHallIsFree(thisWedding,person,otherPerson)) {
+        if (!GetFromDB.checkIfHallIsFree(thisWedding, person, otherPerson)) {
             return null;
         } else {
             int hallNum = GetFromDB.getWeddingHallSerialNumber(hall);
@@ -128,10 +131,50 @@ public class AddToDB {
             throw new Exception("The dish wasn't added successfully");
         }
     }
-
-    public static void addDishToWedding(Wedding wedding, MainDish mainDish, ArrayList<BuffetDecorator> decorations) throws Exception {
+    public static void deleteDishFromWedding(Wedding wedding) throws Exception {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "UPDATE `i_do_weddings`.`wedding` SET `main_dish` = NULL WHERE `id` = "+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The dish wasn't deleted successfully");
+        }
+    }
+    public static void deleteDecorationsFromDish(Wedding wedding) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "DELETE FROM `i_do_weddings`.`decorated_dishes` WHERE id="+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The decorations weren't deleted successfully");
+        }
+    }
+    public static void deleteDishFromAllDishes(Wedding wedding) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "DELETE FROM `i_do_weddings`.`wedding_main_dishes` WHERE id="+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The dish wasn't deleted successfully");
+        }
+    }
+    public static void addDishToWedding(Wedding wedding, ArrayList<BuffetDecorator> decorations) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        if (wedding.getMainDish() != null) {
+            deleteDishFromWedding(wedding);
+            deleteDecorationsFromDish(wedding);
+            deleteDishFromAllDishes(wedding);
         }
         addDishToAllDishes(wedding);
         addDecorationsToDish(wedding, decorations);
@@ -143,7 +186,6 @@ public class AddToDB {
             throw new Exception("The dish wasn't added successfully");
         }
     }
-
 
 
     public static void addDecorationsToDish(Wedding wedding, ArrayList<BuffetDecorator> decorations) throws Exception {
@@ -176,9 +218,50 @@ public class AddToDB {
         }
     }
 
+    public static void deleteCarFromWedding(Wedding wedding) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "UPDATE `i_do_weddings`.`wedding` SET `car` = NULL WHERE `id` = "+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The car wasn't deleted successfully");
+        }
+    }
+    public static void deleteDecorationsFromCar(Wedding wedding) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "DELETE FROM `i_do_weddings`.`decorated_cars` WHERE id="+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The decorations weren't deleted successfully");
+        }
+    }
+    public static void deleteCarFromAllCars(Wedding wedding) throws Exception {
+        if (!DBHelper.OpenConnection()) {
+            throw new Exception("There is a connection problem");
+        }
+        int serialNumber = wedding.getSerialNumber();
+        String sql = "DELETE FROM `i_do_weddings`.`wedding_cars`WHERE wedding_car_num="+serialNumber+";";
+        int num = DBHelper.WriteData(sql);
+        DBHelper.CloseConnection();
+        if (num == -1) {
+            throw new Exception("The car wasn't deleted successfully");
+        }
+    }
     public static void addCarToWedding(Wedding wedding, Vehicle vehicle, ArrayList<CarDecorator> decorations) throws Exception {
         if (!DBHelper.OpenConnection()) {
             throw new Exception("There is a connection problem");
+        }
+        if (wedding.getCar() != null) {
+            deleteCarFromWedding(wedding);
+            deleteDecorationsFromCar(wedding);
+            deleteCarFromAllCars(wedding);
         }
         addCarToAllCars(wedding, vehicle);
         addDecorationsToCar(wedding, decorations);
