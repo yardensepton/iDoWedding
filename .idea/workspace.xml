@@ -5,59 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8f5af1-dbe0-44df-b90f-b103b7a93b13" name="Changes" comment="Initial project commit. There is a bug that print halls function happens in a loop. need to fix that. Added sql databases.">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/img/couple3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_driver_jars.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-driver-jars/mysql-connector-java-8.0.27-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql-driver-jars/mysql-connector-java-8.0.27.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_car_types.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_car_types.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_couples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_couples.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorated_cars.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorated_cars.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorated_dishes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorated_dishes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorates_type.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_decorates_type.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_dj.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_dj.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_extras_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_extras_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_invitation_send_type.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_invitation_send_type.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_musicalgenre.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_musicalgenre.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_people.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_people.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_routines.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_routines.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_cars.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_cars.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_hall.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_hall.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_main_dishes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_Wedding/i_do_weddings_wedding_main_dishes.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/img/couple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DbConnenction/AddToDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DbConnenction/AddToDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DbConnenction/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DbConnenction/DBHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DbConnenction/GetFromDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DbConnenction/GetFromDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Buffet/RisottoBuffetDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Buffet/RisottoBuffetDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Couple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Couple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Music/eMusic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Wedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Wedding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/WeddingHall/WeddingHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/WeddingHall/WeddingHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/WeddingHall/eTypesOfHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/WeddingHall/eTypesOfHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddCouplePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddCouplePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddDJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddDJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddInvitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddInvitation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddMainDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerAddMainDish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerMainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerMainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerPrintData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerPrintData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerPrintHalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerPrintHalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerStartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ScenesCommunication/ControllerStartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo3/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/AddCarScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/AddCarScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/AddCoupleScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/AddCoupleScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/AddDJ.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/AddDJ.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/AddInvitation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/AddInvitation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/AddWeddingMainDish.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/AddWeddingMainDish.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/MainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/MainScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/PrintDJs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/PrintDJs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/PrintHalls.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/PrintHalls.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/PrintingData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/PrintingData.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo3/Start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Main/Start.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +50,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Downloads/sketch.it" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-driver-jars" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
@@ -124,7 +77,7 @@
   </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../.jdks/openjdk-17.0.1" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-17.0.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="demo3" />
